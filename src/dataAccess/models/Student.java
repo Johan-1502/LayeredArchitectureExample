@@ -1,4 +1,4 @@
-package models;
+package dataAccess.models;
 
 public class Student {
     private String firstName;

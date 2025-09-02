@@ -2,16 +2,16 @@ package services;
 
 import java.util.ArrayList;
 
-import models.Student;
-import persistence.IPersistence;
-import persistence.JsonFile;
+import dataAccess.models.Student;
+import dataAccess.repositories.IRepository;
+import dataAccess.repositories.StudentJsonRepository;
 
 public class StudentService implements IService<Student>{
-    private IPersistence<Student> persistence;
+    private IRepository<Student> persistence;
     private ArrayList<Student> students;
 
     public StudentService(){
-        persistence = new JsonFile("data/Persistence.Json");
+        persistence = new StudentJsonRepository("data/Persistence.Json");
         students = persistence.loadData();
         
     }
@@ -40,7 +40,7 @@ public class StudentService implements IService<Student>{
     }
 
     public void saveData(){
-        persistence.writeFile(students);
+        persistence.saveData(students);
     }
 
 

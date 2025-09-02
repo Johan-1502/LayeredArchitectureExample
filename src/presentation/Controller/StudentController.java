@@ -2,11 +2,9 @@ package presentation.Controller;
 
 import java.util.ArrayList;
 
-import models.Student;
+import dataAccess.models.Student;
 import presentation.view.IView;
-import presentation.view.StudentView;
 import services.IService;
-import services.StudentService;
 
 public class StudentController implements IController{
     private IService<Student> service;
@@ -70,10 +68,6 @@ public class StudentController implements IController{
                 view.showMessage(students.get(i).toString());
             }
         }
-    }
-
-    public static void main(String[] args) {
-        new StudentController(new StudentService(), new StudentView()).run();;
     }
     
 }
